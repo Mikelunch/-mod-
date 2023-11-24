@@ -1,0 +1,629 @@
+原链接：https://bbs.3dmgame.com/thread-6285209-1-1.html
+内容：
+----------------------------↓AtkParam_Pc=人物攻击动作分类↓-----------------------------------------------
+AtkParam_Pc=定义玩家武器攻击的每一个动作。
+Damage Level=武器攻击的韧性。
+Stamina Cost=做动作消耗的体力值。
+----------------------------------BehaviorParam_PC----------------------------------------------------
+BehaviorParam_PC=行为参数
+State Behavior Type=状态行为类型
+Reference Type=引用类型（Attack=攻击 Bullet=子弹 SpEffect=效果）
+Reference ID=参考编号
+Durability Cost =耐久性成本(我的理解它是耐力消耗)
+Category=类别（0 - No Category=0-无类别 。1-PC-Right-Hand= 1-电脑-右手。2-PC-left-hand=2-电脑-左手。3/4-Magic=魔法。5-basic=5-基本。6/7-NPC-right-hand=NPC-左右手。9-Kick=9-踢。10/11-PC-Both-hand=PC-双手 12-PC-Right-hand #2 = 12-PC-右手 #2）
+Humanity Cost=人物成本
+----------------------------↓EquipMtrISetParam=道具升级分类↓-----------------------------------------------
+EquipMtrISetParam=每项升级用到的物品和数量。
+Material ID=所需要的道具种类ID  
+Material Amount =所需要的道具种类数量。
+--------------------------------------------------------------------------------------
+-------------------------↓EquipParamAccessory=饰品/护符分类↓-------------------------------------------------
+EquipParamAccessory=饰品护符汇总。
+Weight=物品重量      
+SpEffect ID=护符/道具技能 生效的效果。
+--------------------------------------------------------------------------------------
+--------------------------↓EquipParamGoods=物品/道具分类↓------------------------------------------------
+EquipParamGoods=物品道具的汇总。
+Is Usable=勾上就是消耗道具，不勾上表示无限使用道具。
+Is Equippavle= 勾上表示能装到快捷栏，不勾上无法装到快捷栏。
+
+----------------------------------------------------------------------------------
+------------------------------↓EquipParamProtector=防具分类↓---------------------------------------------
+EquipParamProtector=所有防具汇总。
+Toughness Correaction =韧性(数值 = 这个值*100） Repair Price=修的价格   Base Price=基础的价格 Sell Value=出售给商店的价格。
+Resist - Poison=抵抗 - 毒药。
+Resist - Blight=抵抗 - 枯萎。
+Resist - Hemorrhage=抵抗 - 出血。
+Resist - Death=抵抗 - 死亡。
+Resident SpEffectID = 防具被动BUFF
+Absorption - Physical=防具吸收的伤害种类=吸收 - 物理（数值越小吸收得越多/越厉害）=例子 0.001=牛炸了 狂吸收
+Absorption - Slash=防具吸收的伤害种类=吸收 - 消减（数值越小吸收得越多/越厉害）
+Absorption - Strike=防具吸收的伤害种类=吸收 - 打击（数值越小吸收得越多/越厉害）
+Absorption - Thrust=防具吸收的伤害种类=吸收 - 推力（数值越小吸收得越多/越厉害）
+Absorption - Magic=防具吸收的伤害种类=吸收 - 魔法（数值越小吸收得越多/越厉害）
+Absorption - Fire=防具吸收的伤害种类=吸收 - 火（数值越小吸收得越多/越厉害）
+Absorption - Lightning=防具吸收的伤害种类=吸收 - 闪电(这玩意应该是感应)（数值越小吸收得越多/越厉害）
+----------------------------------------------------------------------------------
+----------------------------↓EquipParamWeapon=武器分类↓-----------------------------------------------
+EquipParamWeapon=所有武器汇总。
+Scaling：STR=（里面的数值表示属性加成，改成300+左右=S级加成）
+Scaling：DEX=（里面的数值表示属性加成，改成300+左右=S级加成）
+Scaling：INT=（里面的数值表示属性加成，改成300+左右=S级加成）
+Scaling：FTH=（里面的数值表示属性加成，改成300+左右=S级加成）
+Scaling：ARC=（里面的数值表示属性加成，改成300+左右=S级加成）----来自于论坛大佬们的指导，从而补充的。
+数值具体上限我没测，改得太离谱的话就失去了乐趣_(:з」∠)_
+
+Guard Absorptiin：Physical=防护吸收：物理（武器/盾牌吸收的防御属性）
+Guard Absorptiin：Magic=后卫吸收：魔法（武器/盾牌吸收的防御属性）
+Guard Absorptiin：Fire=防护吸收：火（武器/盾牌吸收的防御属性）
+Guard Absorptiin：Lightning=后卫吸收：闪电（武器/盾牌吸收的防御属性）
+
+Behavior SpEffect=行为效果（连接到武器带的特效 代码）  
+9040000=尸山血海武器代码  9060000=名刀月隐武器代码  7110000=蛇神弯刀武器代码
+8100000=蒙葛特咒剑  3140000=亵渎圣剑 3100000=神躯化剑
+Passiv SpEffect=被动效果（连接到武器带的被动效果 代码）5071100=出血效果代码 5031400=吸血效果代码
+
+蛇骨刀的中毒效果
+Behavior SpEffect 2 = 6511
+结冰针的冰冻效果
+Behavior SpEffect 2 = 6701
+冻壳斧得冰冻效果
+Behavior SpEffect 2 = 6702
+武器方面同类的Behavior SpEffect 这个效果，最多可以叠加3个，或者把别的弄进去，原本冰壳斧的累计冻伤好像是65把，我叠加了结冰针的进去变成了125了。
+思路在这里，感兴趣的大佬们可以多尝试一下。
+
+Bonus Damage %：Demon=武器对恶魔怪的伤害加成
+Bonus Damage %：Undead=武器对亡灵怪的伤害加成
+Bonus Damage %：Hollow=武器对空中怪的伤害加成
+Bonus Damage %：Abyssal=武器对深海怪的伤害加成
+
+Damage：Physical=伤害：物理（数值）
+Damage：Magic=伤害：魔法（数值）
+Damage：Fire=伤害：火（数值）
+Damage：lightning=伤害：雷电（这玩意应该是感应的！！）（数值）
+Damage：Stamina=伤害：精力（数值）
+Damage：Poise=对敌方霸体的伤害（数值）
+Poise Durability=霸体的耐久性
+Guard Stability=盾的话，就是防御强度，是100的话就永远不消耗精力
+Weapon Moveset Category =武器动作模组的基础模组类型
+短剑（匕首）：20
+直剑（长剑）：23
+大剑：23
+特大剑（巨剑）：26
+刺剑（细剑）：27
+重刺剑（缝针）：39
+曲剑（大刀/弯刀/勾剑）：28
+大曲剑（马刀/大刀）：40
+刀（打刀/长牙）：29
+双头剑（剥制剑）：24
+槌（锤矛/棍棒）：33
+大槌（大棍棒/大角槌/战锤）：35
+连枷：34
+斧（战斧/手斧）：30
+大斧（巨斧/大柴刀/月斧/锚/菜刀）：32
+矛（短矛/鱼叉/阔头枪/钉耙/十字刀/刺棍）：36
+大矛（圣矛/树矛/狩猎矛/战矛/长矛）：37
+戟（刃戟/森戟/骑士戟/军旗/剑刃戟/锯齿刀/战镰/剑枪/钩剑）：38
+镰刀：50
+软鞭（鞭剑）：43
+拳套（手套/拳剑/手骨/义足/塔剑）：42
+钩爪（蛇牙/犬弯爪/）：22
+特大武器（大火槌/锡杖/巨型棍棒/扇形笛子/斗士大斧/刺轮）：31
+火把：21
+手杖/圣印记：41
+弓：51
+长弓：44
+大弓：45
+弩：46
+弩炮：52
+---------以上包括了全武器的动作模组，找到想改的武器代码到Weapon Moveset Category这一栏改对应的数组即可。
+Guard Moveset Category =盾牌动作模组的基础模组类型
+Requirement：STR=装备武器所需要的四维属性（改为0就是不需要任何四维就能装备）
+Requirement：DEX=装备武器所需要的四维属性（改为0就是不需要任何四维就能装备）
+Requirement：TNT=装备武器所需要的四维属性（改为0就是不需要任何四维就能装备）
+Requirement：FTH=装备武器所需要的四维属性（改为0就是不需要任何四维就能装备）
+Guard Bypass=防御时避开/绕过
+Guard Lavel=防御时对怪物的冲击力。
+Enables Guarding=武器/法杖，是否启用防御
+Enables Parrying=武器/法杖，是否启用 回避/格挡（反击？）
+Enables Sorcery=武器/法杖，是否启用魔法
+Enables Pyromancy=武器/法杖，是否启用 火魔法
+Enables Incantations=武器/法杖，是否启用 咒语（龙吼或者咆哮？）
+Enables Vow Magic=武器/法杖，是否启用 誓言魔法
+Hit VFX =武器攻击命中目标的特效
+Stamina Usage% =耐力/体力消耗的倍率/百分比
+----------------------------------------------------------------------------------
+-----------------------------↓Magic=魔法分类↓----------------------------------------------
+Magic=魔法/技能
+Ref 1：FP Cost=魔法消耗的FP数值（数值越小消耗越少，0=无消耗）
+Ref 1：Stamina Cost=耐力/体力的消耗（数值越小消耗越少，0=无消耗）
+Slot Usage=插槽使用情况（技能装备使用的槽位，可以改成0无限的装备，最好不要超过14个因为游戏会崩溃）
+Requirement：INT←（intellect=智力的英文缩写）=技能装备的智力需求（数值改为0=无需求可以装备）
+Requirement：FTH←（faith=信仰的英文缩写）=技能装备的信仰需求（数值改为0=无需求可以装备）
+DEX Casting Speed Min=（魔法释放速度的最小值，改为0=你点的技能感觉快一点？）
+DEX Casting Speed Max=（魔法释放速度的最大值，改为255=为最大值上限，暂时没感觉有啥区别）
+Animation Catagory=技能释放的动作模组（数值为动作模组的编号）
+Animation Category =动画类型
+Magic School Type=魔法类型（Incantation=咒语/祈祷。 Sorcery=巫术/魔法）
+Ref 1: Category=参考类型（Attack=攻击。Bullet=子弹。SpEffect=效果。）
+Attribute Type=属性类别（Strength=强度 Dexterity=灵巧 Faith=信仰 Intelligence=情报）
+技能动作模组能用的：2，8，9，11，15，16，17，19，20，22，23，24，25，26，27，28，29，31，32，33，34，35，37，38，40，41，42，44，45，48，49，50，51，52，54，，55，60，66，67，70，71，74，75，76，81，82，84，86，88，89，90，91，93，94，95，98，99，100，102，103，104，105，106，108，109，110，111，112，113，114，115，117，119，120，121，122，123，
+-------------------------------------------------------------------------------------------------------
+Adjustment Point - Grow 0 = 调整点 - 增长 0
+Levelling Cost - Initial Cost = 调平成本 - 初始成本
+Levelling Cost - Initial Offset =调平成本 - 初始抵消
+Levelling Cost - Cost Increase =调平成本 - 成本增加
+Levelling Cost - Increase Interval =调平成本 - 增加间隔
+Stat Max 0 = 最大统计量 0
+Grow 0 = 增长 0
+---------------------------------------------------------------------------------------------------------------------------------------------
+Bullet=子弹
+参数说明：
+Duration：子弹寿命、持续时间，可以让技能的效果持续的更久，让技能飞的更远，这玩意看着调不要太离谱
+Bullet count：子弹数量，即射出技能的数量，有的技能调多了会卡出特性的（doge）
+Initial Velocity/Max Velocity/Min Velocity：子弹速度，让技能飞的更快，这里看着调，以原技能的数值，翻个5～10倍数值即可。
+Is Lock Module：是否自动追踪，即不锁定目标技能就可以自己飞到目标处，不过有一定的锁定范围，超过范围就不会锁定了，勾上就可以自动追踪
+Flick FX ID：轻拂外汇
+Attenuation Range：衰减范围   改成999就超远距离
+Shoot Interval：拍摄间隔
+Gravity: In Range：重力：在范围内（这玩意我理解不错的话应该是一定范围内技能自动锁定敌人的数值）
+Gravity: Out of Range：重力：超出范围
+Homing Stop Range：归位停止范围
+Acceleration: In Range：加速度：在范围内
+Acceleration: Out of Range：加速度：超出范围
+Acceleration Duration：加速持续时间
+Homing Start Distance：归巢起始距离
+Initial Hit Radius：初始命中半径
+Final Hit Radius：最终命中半径
+Radius Spread Time：半径传播时间
+Explosion Delay：爆炸延迟
+Homing Offset Range：归位偏移范围
+Hitbox Duration：命中框持续时间
+External Force：外力
+Owner SpEffect ID：所有者 SpEffect ID
+Bullet AI：子弹 AI
+Hit Bullet ID：命中项目符号 ID
+Target SpEffect ID ：目标光效 ID
+Bullet Count：子弹计数
+Homing Angle：归位角
+Horizontal Shoot Angle：水平拍摄角度
+Shoot Angle - Horizontal Interval：拍摄角度 - 水平间隔
+Shoot Angle - Vertical Interval：拍摄角度 - 垂直间隔
+Damage Falloff: Physical：伤害衰减：物理
+Damage Falloff: Magic：伤害衰减：魔法
+Damage Falloff: Fire：伤害衰减：火灾
+Damage Falloff: Lightning：伤害衰减：闪电（这玩意应该是感应）
+Damage Falloff: Stamina：伤害下降：耐力
+Damage Falloff: Knockback：伤害下降：击退
+Vertical Shoot Angle：垂直拍摄角度
+Lock Shoot Limit Angle：锁定拍摄极限角度
+Is Object Penetration：是物体穿透
+Previous Velocity Direction Rate：上一个速度方向率
+Attack Attribute：攻击属性（代码包含了以下有用的11个效果属性）
+Effect Attribute：效果属性（代码包含了以下有用的11个效果属性）
+0：None=没有
+10：Magic=魔法
+11：Fire=火灾
+12：Lightning=闪电
+13：Holy=神圣
+20：Poison=毒
+21：blight=  枯萎
+22：Hemorrhage=出血
+23：Frostbite=冻伤
+24：sleep=睡眠
+25：Madness=疯狂
+26：Death=死亡
+254：None=没有
+Material Attack Type：材料攻击类型
+Material Attack Material：材料侵蚀材料
+Material Size：材料尺寸
+Launch Condition Type：启动条件类型
+Follow Type: Soulmass：跟随类型： 灵魂质量
+Follow Type: Catalyst：以下类型： 催化剂
+Follow Type: Follow Floor：跟随类型：跟随楼层
+Emitter Type: Player Feet：发射器类型：玩家脚
+Emitter Type: Parent Bullet：发射器类型：父项目符号
+Emitter Type: Nearest Enemy Feet：发射器类型：近敌脚
+Persistent Attack FX：持续攻击外汇
+Continuous Hitbox：连续命中框
+Penetrate Map：穿透地图
+Hit Both Teams：击中两支球队
+Use Shared Hit List：使用共享命中列表
+Use Multiple Model Points：使用多个模型点
+Attach Effect Type 0：附着效果类型 0
+Attach Effect Type 1：附着效果类型 1
+Can be Deflected by Magic：可以被魔法偏转
+Ignore FX On Water Hit：忽略随机的FX
+Ignore State Transition On Water Hit：忽略水灾时的状态转换
+Can Be Deflected By Bullet Deflection：可通过子弹偏转偏转
+Transfer Effect to Child Bullet：将效果转换为子项目符号
+Transfer Speed to Child Bullet：传输到子子弹的速度
+Is Lock Module：是锁定模块
+Is Search For Target：正在搜索目标
+Is Emitted Bullet：发射子弹
+Transfer Duration to Child Bullet：传输到子项目符号的持续时间
+Damage Falloff: Dark Damage：伤害衰减：暗度伤害
+Bullet Hit Type 0：子弹命中类型 0
+Bullet Hit Type 1：子弹命中类型 1
+Sp Homing Y Angle：Sp 归巢 Y 角
+Emitted Bullet - Random Angle XZ：发射子弹 - 随机角度 XZ
+Emitted Bullet - Random Angle Y：发射子弹 - 随机角度 Y
+Bullet Emitter: Bullet ID：子弹发射器：子弹 ID
+Bullet Emitter: Shoot Interval 1：子弹发射器：射击间隔 1
+Bullet Emitter: Initial Shoot Interval：子弹发射器：初始射击间隔
+Sp Homing Y Angle For Enemy：针对敌人的 Sp 寻源 Y 角度
+Bullet Emitter: Shoot Interval 2：子弹发射器：射击间隔 2
+Launch Type：启动类型（0-Forward=向前 1-Down=向下 2-Forward/Down）
+Limit Bullet Param ID=限制子弹参数 ID
+Counter Hit Type=计数器命中类型（）
+Is Position Hit Bullet：位置命中子弹
+Is Attach Attack SFX：是附加攻击 SFX
+Is Sp Correction 0：Sp 校正是否为 0
+Is Sp Correction 1：Sp 是否校正 1
+Is Penetrate Target：是穿透目标
+Is Sp Correction 2：Sp 是否校正 2
+Is Disable Int Scale：是否禁用 Int Scale
+Emitter Position Radius：发射器位置半径
+Hit Object ID：命中对象 ID
+------接下来，摸鱼的时间我会一点点去更新一些进去，可能不多因为是在摸鱼怕被抓到------------------------
+
+---------------------------------3月22日我又来了摸鱼更新“一”点点---------------------------------
+----------以上均是在Yapped里，Nane解析出来的英文通过网页翻译的，如有不对欢迎指正。---------------------------------------------Param=参数-----------------------------------
+AiSoundParam=AI 声音参数
+AssetEnvironmentGeometryParam=资产环境几何参数
+AssetMaterialSfxParam=材料（）
+AssetModelSfxParam=材料模型参数
+AtkParam_Npc=攻击 参数 NPC？？？
+AtkParam_Pc=攻击 参数 Pc？？
+AttackElementCorrectParam=攻击元素更正参数
+AutoCreateEnvSoundParam=自动创建环境声音参数
+BaseChrSelectMenuParam=基础科选择菜单参数
+BehaviorParam=行为参数
+BehaviorParam_PC=行为参数 个人电脑？
+BonfireWarpParam=篝火扭曲参数
+BonfireWarpSubCategoryParam=篝火扭曲子类别参数
+BonfireWarpTabParam=篝火扭曲标签参数
+BuddyParam=伙伴参数？
+BuddyStoneParam=伙伴石 参数？（网页翻译加上个人理解的，可能不对！！！）
+Bullet=子弹（修改技能的时候会用到的！！！）
+BulletCreateLimitParam=子弹创建限制参数
+CalcCorrectGraph=计算正确图形（修改人物血量HP/耐力FP的数据在这一条里面，修改前记得备份原来的regulation.bin文件！！！）
+↑这条修改后，得重新创建角色才能生效的。↑
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Ceremony=仪式
+CharaInitParam=原初始化参数
+CharMakeMenuListItemParam=字符制作菜单列表项参数/创建菜单列表项
+CharMakeMenuTopParam=字符制作菜单顶部//创建菜单列表顶部
+ChrActivateConditionParam=人物资源激活条件参数（网页翻译外加个人理解的，可能不对！！！）
+ChrModelParam=人物资源模型参数？（网页翻译外加个人理解的，可能不对！！！）
+ClearCountCorrectParam=清除更正参数（个人理解是打完怪物后它消失或者消除的管理）
+CoolTimeParam=冷却时间参数
+CutsceneGparamTimeParam=过场动画参数时间参数
+CutsceneGparamWeatherParam过场动画参数天气参数
+CutsceneMapIdParam=过场动画地图 Id 参数
+CutSceneTextureLoadParam=剪切场景纹理加载参数
+CutsceneTimezoneConvertParam=过场动画时区转换参数
+CutsceneWeatherOverrideGparamConvertParam=过场动画天气覆盖参数转换
+DecalParam=贴花参数
+DirectionCameraParam=方向摄像机参数
+EnemyCommonParam=敌人共享资源/共同的敌人 参数
+EnvObjLotParam=环境对象 参数
+EquipMtrlSetParam=装备设置参数
+EquipParamAccessory=装备参数辅助 / 装备参数配件
+EquipParamCustomWeapon=装备参数定制武器
+EquipParamGem=装备参数组管理
+EquipParamGoods=装备参数商品
+EquipParamProtector=设备参数保护器  / 装备参数保护器
+EquipParamWeapon=装备参数（武器）管理
+FaceParam=脸参数 / 面向参数（网页翻译加个人理解，人物面对的方向管理？）
+FaceRangeParam=脸距/脸范围/面部范围 参数（网页翻译加个人理解，人物面对的方向范围管理？）
+FeTextEffectParam=文本效果参数（网页翻译加个人理解加上它里面的内容，也就是对话框/提示框的管理？可能不太对！！！）
+FootSfxParam=脚/足部 音效 参数？（网页翻译加个人理解，可能不对！！！）
+GameAreaParam=游戏区域参数
+GameSystemCommonParam=游戏系统通用参数/游戏系统共享资源/游戏系统通用  参数（网页翻译加个人理解，可能不对！！！）
+GestureParam=手势/姿态/姿势，参数管理（这玩意可以值得考虑里面有没有翻滚动作之类的。又或者是单纯的人物选表情动作的样子？网页翻译加个人理解，可能不对！！！）
+GparamRefSettings = 参数设置（这玩意具体作用是啥我没搞明白，我单纯的翻译出来）
+GraphicsCommonParam=图形共享资源参数 / 图形通用参数
+GraphicsConfig=图形配置
+GrassLodRangeParam=草原山脉参数？（这玩意应该牵扯到地形了，谨慎修改！！！！！）
+GrassTypeParam=草型参数 / 草类参数（这玩意应该牵扯到植物/植被了，谨慎修改！！！！！）
+GrassTypeParam_Lv1=草型/草类。参数  1级？（搞不懂，不要轻易修改）
+GrassTypeParam_Lv2=草型/草类。参数  2级？（搞不懂，不要轻易修改）
+HitEffectSeParam=命中效果参数
+HitEffectSfxConceptParam=命中效果特效概念/命中效果特效声音 参数（网页翻译加个人理解，可能不对！！！）
+HitEffectSfxParam=命中效果声音参数（网页翻译加个人理解，可能不对！！！）
+HitMtrlParam=命中山地/命中地形 参数（网页翻译加个人理解，可能不对！！！）
+HPEstusFlaskRecoveryParam=赫菲斯托斯瓶恢复参数 / 血瓶/蓝瓶 恢复参数？（网页翻译加个人理解，可能不对！！）
+ItemLotParam_enemy=项目的参数，敌人（网页翻译加个人理解，可能不对！！）
+ItemLotParam_map=项目的参数，地图（网页翻译加个人理解，可能不对！！）
+KeyAssignMenuItemParam=密钥分配菜单项参数
+KeyAssignParam_TypeA=密钥分配参数类型A
+KeyAssignParam_TypeB=密钥分配参数类型B
+KeyAssignParam_TypeC=密钥分配参数类型C
+KnockBackParam=回击/击退 参数
+KnowledgeLoadScreenItemParam= 知识负载屏幕项目 参数（网页翻译加个人理解，可能不对！！）
+LegacyDistantViewPartsReplaceParam=传统远视部件替换 参数/遗留遥远查看部件替换参数（网页翻译加个人理解，可能不对！！）
+LoadBalancerDrawDistScaleParam=负载均衡器绘制区规模参数（网页翻译加个人理解，可能不对！！）
+LoadBalancerDrawDistScaleParam_ps4=负载均衡器绘制比例尺规模 参数 ps4 （网页翻译加个人理解，可能不对！！）
+LoadBalancerDrawDistScaleParam_ps5=负载均衡器绘制比例尺规模 参数 ps5 （网页翻译加个人理解，可能不对！！）
+LoadBalancerDrawDistScaleParam_xb1=负载均衡器绘制比例尺规模 参数 xb1 （网页翻译加个人理解，可能不对！！）
+----------------------------------------------------------------------------------------------------------------------------
+xb1=XB1是游戏中技能组合释放的快捷键，一键可以释放多个技能。（网页翻译加个人理解，可能不对！！）
+----------------------------------------------------------------------------------------------------------------------------
+LoadBalancerDrawDistScaleParam_xb1x=负载均衡器绘制比例尺规模 参数 xb1x（网页翻译加个人理解，可能不对！！）
+LoadBalancerDrawDistScaleParam_xss=负载均衡器绘制比例尺规模 参数xss（网页翻译加个人理解，可能不对！！）
+----------------------------------------------------------------------------------------------------------------------------
+xss=XSS是跨站脚本攻击(Cross Site Scripting)，为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS
+↑这玩意不好理解，度娘搜出来得结果。↑（网页翻译加个人理解，可能不对！！）
+----------------------------------------------------------------------------------------------------------------------------
+LoadBalancerDrawDistScaleParam_xsx=负载均衡器绘制比例尺规模 参数xsx（网页翻译加个人理解，可能不对！！）
+----------------------------------------------------------------------------------------------------------------------------
+xsx= //这玩意度娘搜索也不太好使，我不懂。。。。。。。。。。
+----------------------------------------------------------------------------------------------------------------------------
+LoadBalancerNewDrawDistScaleParam_ps4=负载均衡器新绘制区比例 参数 _ps4（网页翻译加个人理解，可能不对！！）
+LoadBalancerNewDrawDistScaleParam_ps5=负载均衡器新绘制区比例 参数 _ps4（网页翻译加个人理解，可能不对！！）
+LoadBalancerNewDrawDistScaleParam_win64=负载均衡器新绘制区比例 参数 _win64（网页翻译加个人理解，可能不对！！）
+LoadBalancerNewDrawDistScaleParam_xb1=负载均衡器新绘制区比例 参数 _xb1（网页翻译加个人理解，可能不对！！）
+----------------------------------------------------------------------------------------------------------------------------
+xb1=XB1是游戏中技能组合释放的快捷键，一键可以释放多个技能。（网页翻译加个人理解，可能不对！！）
+----------------------------------------------------------------------------------------------------------------------------
+LoadBalancerNewDrawDistScaleParam_xb1x=负载均衡器新绘制区比例 参数 _xb1x（网页翻译加个人理解，可能不对！！）
+LoadBalancerNewDrawDistScaleParam_xss=负载均衡器新绘制区比例 参数 _xss（网页翻译加个人理解，可能不对！！）
+LoadBalancerNewDrawDistScaleParam_xsx=负载均衡器新绘制区比例 参数 _xsx（网页翻译加个人理解，可能不对！！）
+LoadBalancerParam=负载均衡器参数（网页翻译加个人理解，可能不对！！）
+LockCamParam=洛克摄像头参数（网页翻译加个人理解，可能不对！！）
+Magic=魔法（这玩意包括了魔法技能，还有祷告，可以通过它来修改一些参数使技能变得花里胡哨，配合子弹来使用！！！）
+MapDefaultInfoParam=地图默认信息参数
+MapGdRegionDrawParam=地图 GD 区域绘制参数（网页翻译加个人理解，可能不对！！）
+MapGdRegionInfoParam地图 GD 区域信息参数（网页翻译加个人理解，可能不对！！）
+----------------------------------------------------------------------------------------------------------------------------
+GD=大写GD，在网络上被理解为勾搭，意为做个好友的意思。（网页翻译加个人理解，可能不对！！）
+----------------------------------------------------------------------------------------------------------------------------
+MapGridCreateHeightLimitInfoParam=地图格网创建高度限制信息 参数（网页翻译加个人理解，可能不对！！）
+MapMimicryEstablishmentParam=地图信息建立参数 / 地图模拟建立参数（网页翻译加个人理解，可能不对！！）
+MapNameTexParam=地图名称号数 参数（网页翻译加个人理解，可能不对！！）
+MapPieceTexParam=地图碎片号数 参数（网页翻译加个人理解，可能不对！！）
+MaterialExParam=材料防爆参数  /  材料快递参数（网页翻译加个人理解，可能不对！！）
+MenuColorTableParam=菜单颜色表参数（网页翻译加个人理解，可能不对！！）
+MenuCommonParam=菜单共享资源参数
+MenuOffscrRendParam=菜单关闭屏幕参数（网页翻译加个人理解，可能不对！！）
+MenuPropertyLayoutParam=菜单属性布局参数
+MenuPropertySpecParam=菜单属性规格参数
+MenuValueTableParam=菜单值表参数（网页翻译加个人理解，可能不对！！）
+MimicryEstablishmentTexParam=模仿建立参数（网页翻译加个人理解，可能不对！！）
+MPEstusFlaskRecoveryParam=MP 埃斯图斯烧瓶恢复 参数（这玩意蓝瓶恢复？应该是了怎么会分开来弄的，搞不懂，前面有个血瓶的）
+MultiHPEstusFlaskBonusParam=多功能HP埃斯图斯烧瓶奖励 参数（这玩意是那个啥调配药水的瓶子？？个人不理解，搞不懂哟）
+MultiMPEstusFlaskBonusParam=多功能MP埃斯图斯烧瓶奖励 参数（这玩意是那个啥调配药水的瓶子？？个人不理解，搞不懂哟）
+MultiPlayCorrectionParam=多重播放更正参数
+MultiSoulBonusRateParam=多重魂红利利率 参数（网页翻译加个人理解，可能不对！！）
+NetworkAreaParam=网络区域参数
+NetworkMsgParam=网络消息参数
+NetworkParam=网络参数
+NpcAiActionParam=Npc Ai 动作参数
+NpcAiBehaviorProbability=Npc Ai 行为概率参数
+NpcParam=Npc 参数
+NpcThinkParam=Npc 认为/觉得/想  参数（不理解这个）
+ObjActParam=对象参数
+PartsDrawParam=部件绘制参数/零件绘制参数（网页翻译加个人理解，可能不对！！）
+PhantomParam=幻影参数
+PlayerCommonParam=玩家共享资源参数
+PlayRegionParam=播放区域参数
+PostureControlParam_Gender=姿势控制 参数 性别
+PostureControlParam_Pro=姿势控制 参数 专业版
+PostureControlParam_WepLeft =姿势控制 参数 我们离开了？（网页翻译加个人不了解，可能不对！！）
+PostureControlParam_WepRight=姿势控制 参数 我们的权利？（网页翻译加个人不了解，可能不对！！）
+RandomAppearParam=随机应用参数/随机出现参数（网页翻译加个人不了解，可能不对！！）
+ReinforceParamProtector=加强参数保护器
+ReinforceParamWeapon=加强参数武器
+ResistCorrectParam=回复正确参数（网页翻译加个人理解，可能不对！！）
+RideParam=骑乘参数
+RoleParam=角色参数
+RollingObjLotParam=滚动对象参数
+RuntimeBoneControlParam=运行时骨骼控制参数
+SeActivationRangeParam=系统工程师激活范围参数（网页翻译加个人不了解，可能不对！）
+------------------------------------------------------------------------------------------
+Se=系统工程师（SE）是指具备较高专业技术水平，能够分析商业需求，并使用各种系统平台和服务器软件来设计并实现商务解决方案的基础架构的技术人员。他是个“纯粹”的技术职业，而且需要脚踏实地地工作，能够亲自动手进行软件、硬件操作，因而受到许多求职者的青睐。（网页翻译加个人不了解，可能不对！）
+------------------------------------------------------------------------------------------
+SeMaterialConvertParam=系统工程师 材料转换参数（网页翻译加个人不了解，可能不对！）
+------------------------------------------------------------------------------------------
+SfxBlockResShareParam=SFX区块资源重新分享
+------------------------------------------------------------------------------------------
+SFX=一个 SFX (SelF-eXtracting)自解压文件是压缩文件的一种，因为它可以不用借助任何压缩工具，而只需双击该文件就可以自动执行解压缩，因此叫做自解压文件。同压缩文件相比，自解压的压缩文件体积要大于普通的压缩文件（因为它内置了自解压程序），但它的优点就是可以在没有安装压缩软件的情况下打开压缩文件。（这玩意来自于度娘！！！）
+------------------------------------------------------------------------------------------
+ShopLineupParam=商店排队参数
+ShopLineupParam_Recipe=商店排队参数_食谱（类似于制作东西的图纸？应该是这样吧，个人理解）
+SignPuddleParam=标志水坑参数
+SoundAssetSoundObjEnableDistParam=声音资产 声音对象启用区 参数（网页翻译加个人不了解，可能不对！）
+SoundAutoEnvSoundGroupParam=声音自动声音组参数（网页翻译加个人不了解，可能不对！）
+SoundAutoReverbEvaluationDistParam=声音自动混响评估区参数（网页翻译加个人不了解，可能不对！）
+SoundAutoReverbSelectParam=声音自动切换 b选择 参数（网页翻译加个人不了解，可能不对！）
+SoundChrPhysicsSeParam=声音科 物理 参数？/（网页翻译加个人不了解，可能不对！）
+--------------------------------------------------------------------------------------
+Chr=Chr (charcode) 返回与指定的 ASCII 字符代码相对应的字符 从 0 到 31 的数字表示标准的不可打印的 ASCII 代码
+--------------------------------------------------------------------------------------
+SoundCommonIngameParam=声音 在游戏中很常见 参数（网页翻译加个人不了解，可能不对！）
+SoundCutsceneParam=声音过场动画 参数
+SpeedtreeParam=速度树 参数（网页翻译加个人不了解，可能不对！）
+--------------------------------------------------------------------------------------
+速度树=网络树木设置；树木制作系统；的阴影（网页翻译加个人不了解，可能不对！）
+--------------------------------------------------------------------------------------
+SpEffectParam=效果参数（这玩意熟悉，这里面效果丰富得很）
+SpEffectSetParam=效果集参数（emmmm）
+Set=基本解释set. vt. 放置，安置；使处于某位置；使坐；坐落（网页翻译加个人不了解，可能不对！）
+SpEffectVfxParam=闪光特效 参数
+SwordArtsParam=剑术 参数（emmmm，剑术？）
+TalkParam=谈话参数（这玩意我个人理解就是剧情显示的语言，期待后期有皮的大佬 DIY它，哈哈哈哈）
+ThrowDirectionSfxParam=抛出方向 参数
+ThrowParam=抛出参数
+ToughnessParam=韧性参数
+TutorialParam=教程参数
+WaypointParam=航点参数（在我的不了解范围，因为不懂哟~~~哈哈哈）
+WeatherAssetCreateParam=天气资产创建参数 / 创建天气资源参数（网页翻译加个人不了解，可能不对！）
+WeatherAssetReplaceParam=天气资产替换 参数
+WeatherLotParam=天气批次 参数
+WeatherLotTexParam=天气排版参数（网页翻译加个人不了解，可能不对！）
+WeatherParam=天气参数
+WepAbsorpPosParam=即 吸收 参数（网页翻译加个人不了解，可能不对！）
+WetAspectParam=湿润方面 参数（网页翻译加个人不了解，可能不对！）
+WhiteSignCoolTimeParam=白色符号冷却时间 参数？（网页翻译加个人不了解，可能不对！）
+WorldMapLegacyConvParam=世界地图遗留卷 参数？（个人理解为地图碎片遗留位置的参数？）
+WorldMapPieceParam=世界地图 参数
+WorldMapPlaceNameParam=世界地图地名 参数
+WorldMapPointParam=世界地图点参数（个人理解为 赐福点的位置参数？）
+WwiseValueToStrParam_BgmBossChrIdConv=威斯对 Str 的值参数老板ID转化？？？（开摆了，搞不懂）
+WwiseValueToStrParam_EnvPlaceType=威斯对 Str 的值参数 环境广场类型？？？（开摆了，搞不懂）
+WwiseValueToStrParam_Switch_AttackStrength=？？？（开摆了，搞不懂）
+WwiseValueToStrParam_Switch_AttackType=？？？（开摆了，搞不懂）
+WwiseValueToStrParam_Switch_DamageAmount=？？？（开摆了，搞不懂）
+WwiseValueToStrParam_Switch_DeffensiveMaterial=？？？（开摆了，搞不懂）
+WwiseValueToStrParam_Switch_GrassHitType=？？？（开摆了，搞不懂）
+WwiseValueToStrParam_Switch_HitStop=？？？（开摆了，搞不懂）
+WwiseValueToStrParam_Switch_OffensiveMaterial=？？？（开摆了，搞不懂）
+WwiseValueToStrParam_Switch_PlayerEquipmentBottoms=？？？（开摆了，搞不懂）
+WwiseValueToStrParam_Switch_PlayerEquipmentTops=？？？（开摆了，搞不懂）
+WwiseValueToStrParam_Switch_PlayerShoes=？？？（开摆了，搞不懂）
+WwiseValueToStrParam_Switch_PlayerVoiceType=？？？（开摆了，搞不懂）
+
+------------------------------ActionButtonParam =操作按钮参数-----------------------------------------3.28
+ActionButtonParam =操作按钮参数汇总
+--------怎么说呢，这玩意可能没用吧，一点点有限的翻译，均是通过网页翻译的如有不对欢迎指正。--------
+1000=Retrieve lost runes=找回丢失的符文
+1020-6511=Touch bloodstain=触摸血迹
+1100=Ride=骑
+2000=Touch gold summon sign=触摸金色召唤标志
+2001=Touch red summon sign=触摸红色召唤标志
+2010=Check your summon sign=检查您的召唤牌（我的理解是检查召唤的骨灰？或者铃铛？）
+3000=Read message=阅读留言
+3010=Check your message=检查您的消息
+3020=Read message=阅读留言
+4000-6361=Pick up item=取货（我的理解是拾取道具？）
+4100-9532=Pillage corpse=掠夺尸体（这个好懂吧，锤死它了拾取它的东西）
+4110=Pick up item=取货（我的理解是拾取道具？）
+4200-4201-4202=Pillage remains=掠夺遗迹（这个和前面那个掠夺差不多的意思）
+4250-4251-4252-4253-4260-4270-4280-4350 = 取货（我的理解是拾取道具？）
+4300=Search treasure chest=搜索宝箱（我的理解是打开箱子）
+4400=OK=还行
+5000=Climb=爬（这玩意爬楼梯？应该是吧）
+5010=Descend=下降
+6000-6001-6200 -6210-6220-6222-6240-6260-6270-6271-6280-6300-6332-6360-6400-6414-6480-6490-6500-6540-6570-6600-=Talk= 说话
+6100=Touch grace=触摸恩典（这玩意魂系列玩家熟悉吧）
+6101=Rest at site of grace=在恩典的地点休息（这玩意魂系列玩家熟悉吧）
+6102-6103=Rest at table of lost grace=在失去恩典的餐桌上休息（emmmm不太能理解这玩意）
+6221=Hand over Deathroot=移交死亡根
+6230=Touch Hyetta=触摸希塔（emmm我的理解是触摸神授塔？？）
+6231-6320-6350-6420-6700-9000-9110-9140-9190-9210-9220-9230-9260-9280-9300-9310-9320-9330-9504-9519-9523-9527-9531-9533-9550-9980-9999=Examine=检查
+6290-6291=Accept primal glintstone=接受原始闪光石（接受原始燧石？）
+6292=Transplant primal glintstone=移植原始闪光石（移植原始燧石？）
+6310=Touch Fractured Marika=触摸破碎的玛丽卡（emmmm这玩意我不理解）
+6321=Touch the Two Fingers=触摸两根手指
+6330=Be held=举行
+6331=Touch Fia=触摸菲亚（emmmm这玩意我不理解）
+6340=Summon Latenna=召唤拉特纳（召唤天线？？？？？）
+6370=Atone=赎罪（误杀npc的？？）
+6380=Use dressing table=使用梳妆台（这玩意游戏里有碰到过么？）
+6390=Speak the truth about Radagon=说出关于拉达贡的真相
+6410-6411-6412=Administer draught=管理通风（这网页翻译的~~~）
+6413=Where did the body go?=尸体去哪儿了？
+6430=Examine remains=检查遗骸
+6440-6450-6460=Receive mending rune=接收修补符文
+6470=Offer finger=提供手指
+6471-6472=Dye cloth with maiden's blood=用少女的血染布（这玩意是那个任务来着剧情记不住了，褪色者出生地的哪个女巫相关的）
+6519=Return Unalloyed Gold Needle=归还非合金金针
+6580-6590=Examine altar=检查祭坛
+7100-7101-7102-7200-7201-7202-7220-7300-7301-7320-8000-8100-8920-9120=Open=打开
+7110-7210=Close=关闭
+7800-7810-7811~~~7828-7850-7860~~~7878=Acquire materials=获取材料
+8200-8300-8301-8302-8310-8320-8400-8401-8402-8403-8420-8501=Pull lever=拉杆
+9051=Invade White Mask Varré's world=入侵白面具瓦雷的世界
+9052=Invade Old Knight Istvan's world=入侵老骑士伊什特万的世界
+9053=Invade Rileigh the Idle's world=入侵闲置的瑞利世界
+9054=Invade Juno Hoslow, Knight of Blood's world=入侵朱诺·霍斯洛，血骑士的世界
+9055=Invade Vargram the Raging Wolf's world=入侵愤怒的狼瓦格拉姆的世界
+9056=Invade Great Horned Tragoth's world=入侵大角特拉戈斯的世界
+9057=Be summoned to assist Yura, Hunter of Bloody Fingers=被召唤去协助尤拉，血腥手指猎人
+9058=Be summoned to assist Sorceress Sellen=被召唤去协助女巫塞伦
+9059=Be summoned to challenge Sorceress Sellen=被召唤挑战女巫塞伦
+9060=Be summoned to assist Millicent=被召唤协助米利森特
+9061=Be summoned to challenge Millicent=被召唤挑战米利森特
+9070=Touch cooperative sign=触摸合作标志
+9071=Touch invasion sign=触摸入侵标志
+9080~~~9085=Restore the power of the Great Rune=恢复大符文的力量
+9100=Touch=触摸
+9200=Kick ladder=踢梯
+9240=Stargaze=观星
+9290=Return to entrance=返回入口
+9500=Touch wall of thorns=触摸荆棘墙
+9501=Touch golden light=触摸金色光芒
+9503-9505-9506-9522-9529-9530=Examine seal=检查密封件
+9520-9524-9528--=Light flame=轻火
+9521=Touch phantom=触摸幻像
+9525=Touch horned remains=触摸角残骸
+9526=Go back=回去
+9540=Summon Castellan Jerren=召唤卡斯泰兰·杰伦
+9541=Summon Blaidd the Half-Wolf=召唤半狼布莱德
+9542=Summon Alexander, Warrior Jar=召唤亚历山大，战士罐
+9543=Summon Great Horned Tragoth=召唤大角特拉戈斯
+9544=Summon Okina=召唤冲野
+9545=Summon Finger Maiden Therolina=召唤手指少女塞罗琳娜
+9546=Summon Lionel the Lionhearted=召唤狮心王莱昂内尔
+9547=Summon Patches=召唤补丁
+9600=Become the Elden Lord=成为埃尔登领主（欢呼！！！成为咸鱼王）
+9610=Summon Ranni=召唤兰尼
+9620=Become the Lord of Frenzied Flame=成为疯狂火焰之王（癫火emmmmm）
+9630=Wear ring=耐磨环（怎么说呢，网页翻译到的这玩意）
+9640=Open door=打开门
+9700=Hoist medallion=起重机符文
+9701=Hoist secret medallion=起重机秘密符文
+9710-9711=Rest in coffin=在棺材里休息
+9720=Examine pedestal=检查基座/底座（这里应该是群星结局进塔哪个环节）
+9721=Remove inverted statue=移除倒置的雕像（移除颠倒的沙漏，老婆剧情的道具）
+9730=Open door=打开门
+9740=Lie down=躺下
+10000-10001-10010=Traverse the mist=穿越迷雾
+----------------------CalcCorrectGraph------------------------
+0=Default=默认
+1=Heavy=重
+2=Keen=敏锐
+4=Magic / Fire / Lightning / Holy=魔法 / 火 / 闪电 / 圣
+7=Occult=隐匿
+8=Quality=质量/品质
+12=Catalyst -=催化剂 -
+14=Catalyst - Demi-Human Queen's Staff=催化剂 - 半人类女王的权杖
+100=HP Scaling - Vigor=（血条）扩展 - 活力
+101=FP Scaling - Mind=（蓝条）缩放 - 注意
+102=Soul Level - Defence=灵魂等级 - 防御
+104=Stamina - Endurance=（绿条）耐力 - 耐力
+110=Resistance: Poison - Soul Level=抗性：毒药 - 灵魂等级
+111=Resistance: Scarlet Rot - Soul Level=抗性：猩红腐烂 - 灵魂等级
+112=Resistance: Hemorrhage - Soul Level=抵抗力：出血 - 灵魂等级
+113=Resistance: Frostbite - Soul Level=抗性：冻伤 - 灵魂等级
+114=Resistance: Sleep - Soul Level=阻力：睡眠 - 灵魂等级
+115=Resistance: Madness - Soul Level=抵抗力：疯狂 - 灵魂等级
+116=Resistance: Death - Soul Level=抗性：死亡 - 灵魂等级
+120=Resistance: Poison - Stat=抗性： 毒药 - 状态
+121=Resistance: Scarlet Rot - Stat=抗性： 猩红腐烂 - 状态
+122=Resistance: Hemorrhage - Stat=抵抗力：出血 - 状态
+123=Resistance: Frostbite - Stat=抗性： 冻伤 - 状态
+124=Resistance: Sleep - Stat=阻力：睡眠 - 状态
+125=Resistance: Madness - Stat=抵抗：疯狂 - 状态
+126=Resistance: Death - Stat=抵抗力： 死亡 - 状态
+130=Physical Defence - Strength=物理防御 - 力量
+131=Physical Defence - Vitality=物理防御 - 活力
+132=Magic Defence - Intelligence=魔法防御 - 情报
+133=Fire Defence - Vigor=防火 - 活力
+134=Lightning Defence - Endurance=闪电防御 - 耐力
+135=Holy Defence - Faith=神圣的防御 - 信仰
+140=Item Discovery - Arcane=物品发现 - 神秘（爆率？）
+160=Shield - Absorption %=屏蔽 - 吸收 %
+161=Shield - Attribute %=护盾 - 属性 %
+162=Shield - Status %=屏蔽 - 状态 %
+163=Shield - Stamina %=护盾 - 耐力 %
+170=Weapon Arts Point Max - Strength=武器艺术点最大 - 力量
+171=Weapon Arts Point Max - Dexterity=武器艺术点最大 - 灵巧
+172=Weapon Arts Point Max - Intelligence=武器艺术点最大- 情报
+173=Weapon Arts Point Max - Faith=武器艺术点最大- 信仰
+200=Soul Level - Souls Required=灵魂等级 - 所需灵魂
+211=Fall Damage - Equip Load=坠落伤害 - 装备负载
+212=Fall Damage - Strength=跌倒伤害 - 强度
+213=Fall Damage - Dexterity=坠落伤害 - 灵巧
+220=Equip Load - Endurance=装备负载 - 耐力（负重）
